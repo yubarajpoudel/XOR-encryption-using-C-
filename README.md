@@ -6,6 +6,15 @@ Developed by : Yubaraj Poudel
 
 Facebook : [Click here to facebook me](https://www.facebook.com/yubaraj.poudel.1)
 
+**Normal text in test.txt**
+
+  ![Sample Text File|300](http://i.imgur.com/VSbsd4Gl.png)
+
+**After Decryption**
+
+  ![Decrypted|300](http://i.imgur.com/NpKJJgdl.png)
+
+
 ## Overview
 
 This is the C++ application with the concept of the XOR encryption which will encrypt the content
