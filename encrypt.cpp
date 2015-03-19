@@ -131,7 +131,7 @@
 	        			cout << "\n type in the key please:\t";
 	        			cin >> mkey;
 	        			encryptFromPathOfFile(path, mkey);
-	        			
+	        			cout<< "File is successfully changed ";
 	        		}
 	        		
 	        		terminate = checkToContinue(); 
