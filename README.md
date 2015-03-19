@@ -8,11 +8,11 @@ Facebook : [Click here to facebook me](https://www.facebook.com/yubaraj.poudel.1
 
 **Normal text in test.txt**
 
-  ![Sample Text File|300](http://i.imgur.com/VSbsd4Gl.png)
+  ![Sample Text File|300](https://github.com/yuviii/XOR-encryption-using-C-/blob/master/original.png)
 
 **After Decryption**
 
-  ![Decrypted|300](http://i.imgur.com/NpKJJgdl.png)
+  ![Decrypted|300](https://github.com/yuviii/XOR-encryption-using-C-/blob/master/decrypted.png)
 
 
 ## Overview
