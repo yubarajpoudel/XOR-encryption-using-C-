@@ -2,6 +2,7 @@
 	C++ programme to encrypt or decrypt the file using the Xor Encryption method
 	Developed and programmed by : yubaraj Poudel
 	Date:- 3/3/2015
+	minor project of BCT-II/I c++ programming
 */
 
 #include<iostream>
@@ -24,7 +25,7 @@
 		char ch;
 			cout << "\n\n Make a choice\n\n";
         	do{
-	        	cout << " from the keyboard (k) \n from the local (f) \n  quit (q) \n make a choice (k - l - q)";
+	        	cout << " from the keyboard (k) \n from file path (f) \n quit (q) \n make a choice (k - f - q) \t";
 	        	cin>>ch;
         	}
         		while(ch!='k' && ch!='K' && ch!='f' && ch!='F' && ch!='q' && ch!='Q');
@@ -32,13 +33,14 @@
 	}
 
 	bool saveinFile(string text, string path){
-	  string paths = path;
-	  if(paths == ""){
-	  	paths = "example.txt";
+	  
+	  if(path == ""){
+	  	path = "example.txt";
 	  }
 	  ofstream myfile;
-	  myfile.open(paths.c_str(), ios::app);
+	  myfile.open(path.c_str(), ios::out);
 	  if (myfile.is_open()){
+	  	text = text + "/o";
 		myfile << text;
 		cout<< "\n saved in the file";		  		 
 	   	myfile.close();
@@ -51,7 +53,7 @@
 	  	return true;
 	}
 
-	void getTextFromPathOfFile(string path, char key){
+	void encryptFromPathOfFile(string path, char key){
 		//string paths = path;
 		int array_size = 1024;
 		//char* data[] = new char[array_size];
@@ -82,16 +84,29 @@
 		else{
 			cout<< "unable to open file for writting";
 		}
-		//return data;
+		
+	}
+
+	bool checkToContinue(){
+		char cont;
+		cout<< "\n\n Would you like to continue (y/n) : ";
+		cin>> cont;
+		cout<<"\n";
+		if(cont == 'n' || cont == 'N'){
+			return true;
+		}
+		else{
+		return false;
+		}
 	}
 
 	int main () {
 	  char choice, key;
-	  char cont = 'n';
-
+	  bool terminate = false;
 	  char mtext[100];
 	  			cout<<"\n\t\t    *********** Encryption C++ ***********\n\n";
-        		do{
+        		while(!terminate){
+
         			choice = askChoice();
         			if(choice == 'q' || choice == 'Q'){
         				cout<< "\n Thanks for using this application \n";
@@ -99,44 +114,30 @@
         			}
 
 	        		if(choice == 'k' || choice == 'K'){
-	        			cout<< "\n\n Please Type in the line";
+	        			cout<< "\n Please Type in the line : \n";
 	        			cin>>mtext;
-	        			cout << "\n\n please Type in the encrypt key (should be one word and should not contain space)";
+	        			cout << "\n\n please Type in the encrypt key (should be one word and should not contain space):\n";
 	        			cin>>key;
 	        			string decrypted = encryptDecrypt(mtext, key);
-	        			if(saveinFile(decrypted, "")){
-	        				cout<< "\n\n would you like to continue ?? (y/n)";
-	        				cin>>cont;
-	        			}
-	        			else{
-	        				cout<< "problem in saving the file";
-	        			}
-
+	        			saveinFile(decrypted, "");
+	        			
 	        		}
 
 	        		if(choice == 'f' || choice == 'F'){
 	        			char path[200];
 	        			char mkey;
-	        			cout << "\n please provide the full path (C:\\Demo.txt) : ";
+	        			cout << "\n please provide the full path (C:\\Demo.txt):\t";
 	        			cin>> path;
-	        			cout << "\n type in the key please";
+	        			cout << "\n type in the key please:\t";
 	        			cin >> mkey;
-	        			getTextFromPathOfFile(path, mkey);
-	        			//string mytext = getTextFromPathOfFile(path, mkey);
-	        			//for(int i= 0; i!=)
-	        			/*string decrypted = encryptDecrypt(mtext, key);
-	        			if(saveinFile(decrypted, path)){
-	        				cout<< "\n\n would you like to continue ?? (y/n)";
-	        				cin>>cont;
-	        				
-	        			}
-	        			else{
-	        				cout<< "problem in saving the file";
-	        			}
-	        			*/	//cout<< "in test read";
+	        			encryptFromPathOfFile(path, mkey);
+	        			
 	        		}
+	        		
+	        		terminate = checkToContinue(); 
 	        	}
-	        	while(cont=='y');
+	        	
+	        	
         		return 0;
         	}
 
