@@ -10,7 +10,7 @@ Facebook : [Click here to facebook me](https://www.facebook.com/yubaraj.poudel.1
 
   ![Sample Text File|300](https://github.com/yuviii/XOR-encryption-using-C-/blob/master/original.png)
 
-**After Decryption**
+**After Encryption**
 
   ![Decrypted|300](https://github.com/yuviii/XOR-encryption-using-C-/blob/master/decrypted.png)
 
